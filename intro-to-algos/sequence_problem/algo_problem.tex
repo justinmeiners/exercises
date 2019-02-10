@@ -1,0 +1,35 @@
+**Theorem:** Suppose there is a sequence of positive real numbers such that $a_{1}a_{2}... a_{n}=1$ then 
+
+$$(1+a_{1})(1+a_{2})...(1+a_{n})\geq2^{n}$$
+
+**Proof:** Let $n=1$ then clearly $a_{1}=1$ and $(1+1)\geq2$
+
+Assume the claim is true for all sequences of length $k<n$. Then from a sequence $a_{1}a_{2}..a_{n}$, let $c=a_{i}a_{j}$ where $a_{i}\geq1$ and $a_{j}\leq1$. We know we can pick these because otherwise the product must be less or than greater one.
+
+Then $c(a_{1}a_{2}...a_{n})= 1$ where $i\neq j$ and $i\neq k$ and by the induction hypothesis:
+
+$$(c+1)(a_{1}+1)(a_{2}+1)...(a_{n}+1)\geq 2^{n-1}$$
+
+And  
+$$(1+a_{i})(1+a_{j})=a_{i}a_{j}+a_{i}+a_{j}+1$$
+
+We want to show this product is greater than $2(c+1)$.
+
+$$(1-a_{j})\geq (1-a_{j})$$
+
+$$a_{i}(1-a_{j})\geq (1-a_{j})$$ since $a_{i}\geq 1$.
+
+$$a_{i}-a_{i}a_{j}\geq (1-a_{j})$$
+
+$$a_{i} + a_{j} \geq a_{i}a_{j} + 1$$
+
+$$a_{i} + a_{j} + (a_{i}a_{j} + 1) \geq a_{i}a_{j} + 1 + (a_{i}a_{j} + 1)$$
+
+$$(1+a_{i})(1+a_{j}) \geq 2(a_{i}a_{j} + 1) = 2(c+1)$$
+
+Finally:
+
+$$(1+a_{i})(1+a_{j})(a_{1}+1)...(a_{n}+1)\geq 2(c+1)\frac{2^{n-1}}{c+1}=2^{n}$$
+
+
+**Note:** This excercise comes from Udi Manber's Intro to Algorithms.
