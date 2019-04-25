@@ -43,7 +43,13 @@
 
 ![1-9](1-9.gif)
 
+## 1-11
+
+![1-11](1-11.gif)
+
 ## 1-12
+
+![1-12](1-12.gif)
 
 [Dual Space](https://en.wikipedia.org/wiki/Dual_space)
 
