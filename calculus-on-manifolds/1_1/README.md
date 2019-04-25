@@ -35,9 +35,15 @@
 
 ![1-8c](1-8c.gif)
 
+[Action of angle-preserving linear transformation on basis vectors](https://math.stackexchange.com/questions/354848/action-of-angle-preserving-linear-transformation-on-basis-vectors)
+
 ## 1-9
 
 ![1-9](1-9.gif)
+
+## 1-12
+
+[Dual Space](https://en.wikipedia.org/wiki/Dual_space)
 
 ## 1-13
 
