@@ -31,6 +31,10 @@
 
 ![1-29](1-29.gif)
 
+## 1-30
+
+https://math.stackexchange.com/questions/2163444/spivak-calculus-on-manifolds-problem-1-30
+
 
 
 
