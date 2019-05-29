@@ -17,12 +17,9 @@ https://math.stackexchange.com/questions/65686/total-derivative-and-multilinear-
 https://math.stackexchange.com/questions/1334759/total-derivative-of-inner-product
 
 
+## 2-14
 
-
-
-
-
-
+https://en.wikipedia.org/wiki/Multilinear_map
 
 
 
