@@ -9,9 +9,13 @@
 
 ![2-12](2-12.gif)
 
+https://math.stackexchange.com/questions/65686/total-derivative-and-multilinear-functions
+
+
 ## 2-13
 
-https://math.stackexchange.com/questions/65686/total-derivative-and-multilinear-functions
+https://math.stackexchange.com/questions/1334759/total-derivative-of-inner-product
+
 
 
 
