@@ -14,8 +14,7 @@
 
 ![2-13ab](2-13ab.gif)
 
-![2-13bc](2-13bc.gif)
-
+![2-13cd](2-13cd.gif)
 
 https://math.stackexchange.com/questions/1334759/total-derivative-of-inner-product
 
