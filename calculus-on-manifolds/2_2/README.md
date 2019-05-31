@@ -33,3 +33,9 @@ https://math.stackexchange.com/questions/65686/total-derivative-and-multilinear-
 
 https://en.wikipedia.org/wiki/Multilinear_map
 
+## 2-15
+
+(Skipped)
+
+## 2-16
+
