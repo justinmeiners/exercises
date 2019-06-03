@@ -39,3 +39,4 @@ https://en.wikipedia.org/wiki/Multilinear_map
 
 ## 2-16
 
+![2-16](2-16.gif)
