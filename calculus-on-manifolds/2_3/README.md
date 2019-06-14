@@ -28,3 +28,15 @@
 
 ![2-22a](2-22a.gif)
 ![2-22b](2-22b.gif)
+
+## 2-23
+
+There is a much easier trick for part a, but I still like my proof.
+
+![2-23a](2-23a.gif)
+
+If you want to get picky, you can make the transaction along x smooth
+so the first partial derivative still exists.
+
+![2-23b](2-23b.gif)
+
