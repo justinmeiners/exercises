@@ -40,3 +40,11 @@ so the first partial derivative still exists.
 
 ![2-23b](2-23b.gif)
 
+## 2-24
+
+![2-24](2-24.gif)
+
+## 2-27
+
+![2-27](2-27.gif)
+
