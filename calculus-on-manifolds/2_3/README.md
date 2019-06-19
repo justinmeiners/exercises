@@ -27,6 +27,7 @@
 ## 2-22
 
 ![2-22a](2-22a.gif)
+
 ![2-22b](2-22b.gif)
 
 ## 2-23
@@ -43,6 +44,15 @@ so the first partial derivative still exists.
 ## 2-24
 
 ![2-24](2-24.gif)
+
+## 2-25
+
+I definitely got some help to get the polynomial idea.
+I don't think the hint in the book was sufficient.
+
+![2-25a](2-25a.gif)
+
+![2-25b](2-25b.gif)
 
 ## 2-27
 
