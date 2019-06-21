@@ -9,5 +9,9 @@ By: Michael Spivak
 - [2.2](2_2/)
 - [2.3](2_3/)
 
+## References
+
+I tried to cite sources when I got stuck.
+Here is a complete guide: http://www.ms.uky.edu/~ken/ma570/
 
 
