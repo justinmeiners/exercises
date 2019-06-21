@@ -7,36 +7,49 @@
 ; Z_{4} Z_{2} 
 ; Z_{2} Z_{2} Z_{2} 
 
-(use srfi-1)
-(use extras)
+(import srfi-1)
+(import scheme (chicken io))
+
+;(chicken io)
 
 ; Sieve of Eratosthenes
 ; I profiled it and it was much faster than
 ; the simpler implementation, howerver the 
 ; the rest of the code is pretty ineffecient
+
+(: prime-sieve (number -> (list-of number)))
+
 (define (prime-sieve count)
   (let ((marked (make-vector count #f)))
+
+    (: build-list (number -> (list-of number)))
     (define (build-list index)
       (if (>= index count)
         '()
         (if (vector-ref marked index)
           (build-list (+ index 1))
           (cons (+ index 1) (build-list (+ index 1))))))
+
+    (: next-prime (number -> null))
     (define (next-prime index)
       (if (>= index count)
         marked
         (begin
           (if (vector-ref marked index)
-            'done
+            '()
             (mark (+ index 1) (+ index index 1)))
           (next-prime (+ index 1)))))
+
     (define (mark stride index)
       (if (>= index count)
-        'ok
+        '()
         (begin
           (vector-set! marked index #t)
           (mark stride (+ index stride)))))
+
     (begin (next-prime 1) (build-list 1))))
+
+(: divide-prime (number number --> (pair number number)))
 
 (define (divide-prime n p)
   (define (iter m k)
@@ -44,6 +57,8 @@
       (iter (/ m p) (+ k 1))
       (cons m k)))
   (iter n 0))
+
+(: factor (number (list-of number) --> (list-of number)))
 
 (define (factor n prime-list)
   (if (null? prime-list)
@@ -54,6 +69,8 @@
           (cons (car prime-list) (cdr div-pair))  
           (factor (car div-pair) (cdr prime-list)))
         (factor (car div-pair) (cdr prime-list))))))
+
+(: partition-n (number --> (list-of (list-of number))))
 
 (define (partition-n n)
   ; partition(n)
@@ -78,28 +95,35 @@
     (list '())
     (iter 0)))
 
+(: cartesian-product (list list --> list))
+
 (define (cartesian-product list-a list-b)
   (append-map 
     (lambda (a) (map (lambda (b) (append a b)) list-b)) list-a))
 
+(: combine-partitions ((list-of number) -> list))
+
 (define (combine-partitions factors)
   ; the way the combing works we need the elements in their own lists
+
+  (: wrap-list (list --> (list-of list)))
   (define (wrap-list ls)
     (map (lambda (tail) (list tail)) ls))
+
   (if (null? (cdr factors))
     (wrap-list (partition-n (cdr (car factors))))
     (cartesian-product (wrap-list (partition-n (cdr (car factors))))
                        (combine-partitions (cdr factors)))))
 
+(: apply-powers (number (list-of number) --> (list-of number)))
+
 (define (apply-powers prime-factor power-list)
-  (if (null? power-list)
-    '()
-    (cons (expt prime-factor (car power-list))
-          (apply-powers prime-factor (cdr power-list)))))
+  (map (lambda (power) (expt prime-factor power)) power-list))
 
 (define (build-groups n)
   ;  example combos ((1 1 1 1) (4)) 
   ;  example factors ((3 . n) (2 . m))  
+
   (define (iter-combos power-lists factors)
     (if (null? power-lists)
       '()
