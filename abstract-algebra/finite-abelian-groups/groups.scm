@@ -122,25 +122,23 @@
 (define (apply-powers prime-factor power-list)
   (map (lambda (power) (expt prime-factor power)) power-list))
 
+(: build-groups (number -> (list-of number)))
+
 (define (build-groups n)
   ;  example combos ((1 1 1 1) (4)) 
   ;  example factors ((3 . n) (2 . m))  
 
-  (define (iter-combos power-lists factors)
-    (if (null? power-lists)
-      '()
-      (append (apply-powers (car (car factors)) (car power-lists))
-              (iter-combos (cdr power-lists) (cdr factors)))))
-
-  (define (iter-solutions solutions factors)
-    (if (null? solutions)
-      '()
-      (cons (iter-combos (car solutions) factors)
-            (iter-solutions (cdr solutions) factors))))
+  (define (build-combos power-lists factor-lists)
+    (append-map (lambda (f p) 
+                    (apply-powers (car f) p))
+                factor-lists
+                power-lists))
 
   (let* ((factors (factor n (prime-sieve n)))
          (solutions (combine-partitions factors)))
-    (iter-solutions solutions factors)))
+    (map (lambda (s)
+           (build-combos s factors))
+         solutions)))
 
 (define (input-loop)
   (define (display-group group)
