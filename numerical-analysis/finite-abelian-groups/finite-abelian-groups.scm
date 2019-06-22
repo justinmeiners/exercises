@@ -31,6 +31,8 @@
           (cons (+ index 1) (build-list (+ index 1))))))
 
     (: next-prime (number -> null))
+
+    (: mark (number number -> null))
     (define (next-prime index)
       (if (>= index count)
         marked
