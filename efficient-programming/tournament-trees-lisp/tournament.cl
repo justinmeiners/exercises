@@ -43,17 +43,17 @@
 ; Use case 1: Sort a list
 
 (defparameter test-list-1 '(8 9 3 9 4 4 1 87 2 10 9 3 2 5 9))
-(defparameter test-list-2 '(1 4 1 5 9 2 6 5 3 5))
+(defparameter test-list-2 '#(1 4 1 5 9 2 6 5 3 5))
 
 
-(defun sort-list (ls cmp)
- (let ((c '())
-       (merge-op (lambda (xs ys) (merge 'list xs ys cmp))))
-  (dolist (x ls)
-   (setf c (add-to-counter c (list x) merge-op))
-   (print c))
-
-  (reduce-counter c merge-op)))
+(defun tourn-sort (type seq cmp)
+ (flet ((merge-op (xs ys) (merge type xs ys cmp)))
+  (let ((counter 
+         (reduce (lambda (c x)
+                  (print c)
+                  (add-to-counter c (list x) #'merge-op))
+          seq :initial-value '())))
+  (reduce-counter counter #'merge-op))))
 
 
 ; Use case 2: Find 2 smallest elements in list
@@ -74,21 +74,26 @@
   (lambda (a b)
    (if (funcall cmp a b) a b)) ls))
 
-(defun min-1-2 (ls cmp)
- (let ((c '())
-       (min-op (lambda (a b) (op-min-1-2 a b cmp))))
-  (dolist (x ls)
-   (setf c (add-to-counter c (list x) min-op))
-   (print c))
-  (let ((result (reduce-counter c min-op)))
+(defun min-1-2 (seq cmp)
+ (flet ((min-op (a b) (op-min-1-2 a b cmp)))
+  (let* ((counter
+          (reduce (lambda (c x)
+                   (print c)
+                   (add-to-counter c (list x) #'min-op))
+           seq :initial-value '()))
+         (result (reduce-counter counter #'min-op)))
+
    (cons (car result) (min-list (cdr result) cmp)))))
 
 
 ; Testing
+(print (tourn-sort 'list test-list-1 #'<))
+(print (tourn-sort 'vector test-list-2 #'<))
+(print (tourn-sort 'string "this is a test of sorting" #'string<))
 
-(print (sort-list test-list-1 #'<))
-(print (sort-list test-list-2 #'<))
 
 (print (min-1-2 test-list-1 #'<))
 (print (min-1-2 test-list-2 #'<))
+(print (min-1-2 "accbcd" #'char<))
+
 
