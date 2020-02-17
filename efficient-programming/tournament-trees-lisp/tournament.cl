@@ -12,6 +12,8 @@
 ;(print (merge 'list '(1 1 3 5 7 8) '(1 2 2 3) #'<))
 
 
+(declaim (ftype (function (list * function) list) add-to-counter))
+
 (defun add-to-counter (counter carry op)
  (cond ((null counter)
         (cons carry counter))
@@ -21,6 +23,8 @@
    (cons nil
     (add-to-counter (cdr counter) (funcall op carry (car counter)) op)))))
 
+
+(declaim (ftype (function (list function) *) reduce-counter))
 
 (defun reduce-counter (counter op)
  (labels
@@ -45,6 +49,7 @@
 (defparameter test-list-1 '(8 9 3 9 4 4 1 87 2 10 9 3 2 5 9))
 (defparameter test-list-2 '#(1 4 1 5 9 2 6 5 3 5))
 
+(declaim (ftype (function (symbol sequence function) sequence) tourn-sort))
 
 (defun tourn-sort (type seq cmp)
  (flet ((merge-op (xs ys) (merge type xs ys cmp)))
@@ -73,6 +78,8 @@
  (reduce 
   (lambda (a b)
    (if (funcall cmp a b) a b)) ls))
+
+(declaim (ftype (function (sequence function) cons) min-1-2))
 
 (defun min-1-2 (seq cmp)
  (flet ((min-op (a b) (op-min-1-2 a b cmp)))
