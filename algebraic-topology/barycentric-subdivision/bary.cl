@@ -42,11 +42,11 @@
         (format t "~%")))
 
 
-(print-complex (barycentric-subdivide (list #(0 0) #(1 0))))
+(print-complex (barycentric-subdivide (list #(-1 0) #(1 0))))
 
-(print-complex (barycentric-subdivide (list #(0 0) #(1 1) #(2 0))))
+(print-complex (barycentric-subdivide (list #(-1 0) #(0 1) #(1 0))))
 
-(print-complex (barycentric-subdivide (list #(0 0 0) #(1 1 0) #(2 0 0) #(0 1 1))))
+(print-complex (barycentric-subdivide (list #(-1 0 0) #(0 1 0) #(1 0 0) #(0 0.5 1))))
 
 
 
