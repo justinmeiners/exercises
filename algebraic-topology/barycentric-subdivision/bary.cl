@@ -11,7 +11,9 @@
 
 (defun calc-barycenter (simplex)
   (let ((N (length simplex)))
-    (reduce #'add-vec (map 'vector (lambda (v) (scale-vec (float (/ 1 N)) v)) simplex))))
+    (reduce #'add-vec
+            (map 'vector (lambda (v) (scale-vec (float (/ 1 N)) v)) 
+                 simplex))))
 
 (defun simplex-subfaces (simplex)
   (labels ((helper (front back results)
@@ -29,7 +31,8 @@
     (let ((b (calc-barycenter simplex))
           (faces (simplex-subfaces simplex)))
       (mapcar (lambda (face) (cons b face)) 
-              (apply #'append (mapcar #'barycentric-subdivide faces))))))
+              (apply #'append
+                     (mapcar #'barycentric-subdivide faces))))))
 
 (defun print-simplex (simplex)
     (loop for v in simplex do
