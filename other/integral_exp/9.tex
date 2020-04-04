@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\[
+\begin{split}
+    & \exp(\int_{[0, 1]^{2}} f(x, y) dx dy) \\
+    &= \exp(\lim_{n \rightarrow \infty} \sum_{i=1}^{n} \sum_{j=1}^{n}
+        f(x_{i}*, y_{i}*) \Delta x \Delta y) \\
+    &= \lim_{n \rightarrow \infty}  \exp(\sum_{i=1}^{n} \sum_{j=1}^{n}
+        f(i/n, j/n) 1/n^{2}) \\
+    &= \lim_{n \rightarrow \infty}  \prod_{i=1}^{n} \prod_{j=1}^{n}
+        \exp(f(i/n, j/n) 1/n^{2}) \\
+\end{split}
+\]
+
+Let $x = f(i/n, j/n)$
+Then 
+\[
+\begin{split}
+&= \lim_{n \rightarrow \infty}  \prod_{i=1}^{n} \prod_{j=1}^{n}
+    (1 + \frac{x}{n^{2}} + \frac{x^{2}}{2! n^{4}} + \ldots ) \\
+\end{split}
+\]
+
+\end{document}
+
