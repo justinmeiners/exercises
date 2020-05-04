@@ -3,6 +3,12 @@
   `(cond (,test ,a)
         (t ,b)))
 
+(defmacro if1 (pred conseq alt)
+   `(cond (,pred ,conseq)
+          (t ,alt)))
+
+
+
 ; No
 (if1 (< 10 5)
      (print "yes")

@@ -12,10 +12,10 @@
 ;(defmacro nth-expr (n &rest expr)
 ;  `(eval (nth ,n (quote (list ,@expr)))))
 
-;(defmacro nth-expr (n &rest expr)
-;  (nth n expr))
+(defmacro nth-expr (n &rest expr)
+  `@(nth n expr))
 
-;(print (macroexpand-1 '(nth-expr 1 (/ 1 0) (+ 1 2) (/ 1 0))))
+(print (macroexpand-1 '(nth-expr 1 (/ 1 0) (+ 1 2) (/ 1 0))))
 
 ;(let ((n 2))
 ;  (print (nth-expr 1 (/ 1 0) (+ 1 2) (/ 1 0))))
