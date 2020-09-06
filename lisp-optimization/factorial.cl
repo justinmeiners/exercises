@@ -17,6 +17,10 @@
 
 (declaim (notinline factorial))
 
+; out of luck on this one.
+; it cannot see that * will not overflow,
+; and we have no control of that from the outside.
+; a custom factorial would be required for better performance
 (defun fast-factorial (n)
   (declare (type fixnum n))
   (declare (inline factorial))
