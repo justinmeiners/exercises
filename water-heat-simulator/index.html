@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Heat Simulator</title>
+
+        <style>
+        body {
+            background-color: white;
+            font-family: Lucida Console, Courier, monospace;
+        }
+
+        #main-canvas {
+            border: 1px solid black;
+        }
+
+    </style>
+    </head>
+
+    <body>
+        <canvas id="main-canvas" width="1024" height="768"></canvas>
+        <br/>
+
+        <span id="current-time">
+        </span>
+
+       <br/>
+
+        <label> Velocity of Pump (0 - 1 m/s)
+            <input id="pump-velocity" type="range" min="0.0" max="1.0" step="0.1"/>
+        </label>
+        <label>
+            Time Speed (15x - 225 x)
+            <input id="time-speed" type="range" min="1.0" max="15.0" ste="0.1"/>
+        </label>
+
+
+        <!--
+        <label>
+            Sun Power (1x - 50x)
+            <input id="sun" type="range" min="1.0" max="50.0" ste="0.1"/>
+        </label>
+        -->
+
+
+        <button id="reset">Reset</button>
+
+        <h3> What is going on? </h3>
+
+        <p>
+        Since the system is a closed cycle, it's depicted as a loop.
+        The fat section represents the storage tank.
+        The section outlined in yellow is the coil being heated by the sun.
+        </p>
+
+        <p>
+        The two main processes being simulated  are the pump moving water around,
+        and conduction between neighboring pieces.
+        Energy never leaves the system, so it will keep heating up forever (hit reset).
+        </p>
+
+        <p>
+            It takes a big solar panel to collect much energy.
+            Since this one is small I made the sun 20x stronger than normal.
+        </p>
+
+        <h3> Things to Try</h3>
+
+        <ul>
+        <li>
+            Leave pump at 0 and crank up the temperature to watch the condution.
+        </li>
+        <li>
+            Speed up time and crank up the pump speed.
+        </li>
+       </ul>
+
+
+        <h3> Why JavaScript?</h3>
+
+        <p> So I could make this interface and display </p>
+       <script src="app.js"></script>
+    </body>
+</html>
